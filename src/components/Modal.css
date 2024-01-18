@@ -1,0 +1,90 @@
+.modal {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.modal__overlay {
+  background-color: hsla(0, 0%, 0%, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  min-height: 100vh;
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  width: 45rem;
+  margin: auto;
+  background-color: #fff;
+  padding: 1.6rem;
+  padding-bottom: 3.2rem;
+  border-radius: 1.6rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  animation-name: slideInModal;
+  animation-duration: 600ms;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.modal__close {
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.modal--update {
+  width: 80%;
+  margin: 0 auto;
+
+  p {
+    width: 30rem;
+    margin: 2.4rem auto 4rem;
+  }
+
+  .btn {
+    width: 70%;
+    margin-bottom: 2.8rem;
+
+    &:first-of-type {
+      margin-right: 2.4rem;
+    }
+  }
+}
+
+@keyframes slideInModal {
+  from {
+    top: 30%;
+    opacity: 0.3;
+    transform: rotateX(-20deg) translate(-50%, -50%);
+  }
+
+  to {
+    top: 50%;
+    opacity: 1;
+    transform: rotateX(0) translate(-50%, -50%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
