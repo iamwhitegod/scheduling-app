@@ -67,7 +67,15 @@ const Timer = () => {
           {schedules[current]?.name}
         </span>
         <h1 className="text-white text-[200px] leading-[240px] show-timer">
-          {`00:${remainingTime.minutes}:${remainingTime.seconds}`}
+          {`00:${
+            remainingTime.minutes
+              ? remainingTime.minutes.toString().padStart(2, "0")
+              : "00"
+          }:${
+            remainingTime.seconds
+              ? remainingTime.seconds.toString().padStart(2, "0")
+              : "00"
+          }`}
         </h1>
         <span className="text-primaryLight font-sans font-semibold text-[28px] text-[#00C9D2]">
           {current === end
