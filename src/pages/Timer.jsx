@@ -22,7 +22,7 @@ const Timer = () => {
         <h1 className="text-white text-[200px] leading-[240px]">00:59:00</h1>
         <span className="text-primaryLight font-sans font-semibold text-[28px] text-[#00C9D2]">
           {current === end
-            ? `Previous: ${schedules[current - 1]?.name}`
+            ? `The End`
             : `Up next: ${schedules[current + 1]?.name}`}
         </span>
       </div>

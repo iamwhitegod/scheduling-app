@@ -51,16 +51,7 @@ function App() {
               }
             />
 
-            <Route
-              exact
-              path="/"
-              element={
-                <ProtectedRoutes>
-                  <Homepage />
-                </ProtectedRoutes>
-              }
-            />
-
+            <Route exact path="/" element={<Homepage />} />
             <Route exact path="/signin" element={<SignIn />} />
           </Routes>
         </IconContext.Provider>

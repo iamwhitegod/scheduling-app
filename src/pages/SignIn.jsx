@@ -3,6 +3,7 @@ import { styles } from "./Homepage";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useAuth } from "../context/auth";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const { login = null, state = {} } = useAuth();
@@ -29,9 +30,12 @@ const SignIn = () => {
     <div className="signin min-h-[100vh]" style={styles}>
       <nav className="py-8">
         <div className="max-w-[1140px] px-[24px] mx-auto flex justify-between items-center">
-          <button className="text-white bg-primaryDark px-6 py-4 text-[20px] cursor-pointer rounded-md">
+          <Link
+            to={"/"}
+            className="text-white bg-primaryDark px-6 py-4 text-[20px] cursor-pointer rounded-md"
+          >
             Eventter
-          </button>
+          </Link>
         </div>
       </nav>
 

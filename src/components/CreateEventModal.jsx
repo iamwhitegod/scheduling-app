@@ -29,6 +29,7 @@ const CreateEventModal = ({ modal }) => {
       duration: `${hour < 10 ? "0" : ""}${hour}:${
         minutes < 10 ? "0" : ""
       }${minutes}:${seconds < 10 ? "0" : ""}${seconds}`,
+      schedules: [],
     };
 
     createEvent(event);

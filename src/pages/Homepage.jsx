@@ -1,5 +1,7 @@
 import { ArrowRight, UserCircle } from "@phosphor-icons/react";
 import React from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../context/auth";
 
 export const styles = {
   backgroundImage:
@@ -9,20 +11,38 @@ export const styles = {
 };
 
 const Homepage = () => {
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
+
   return (
     <header className="header min-h-[100vh]" style={styles}>
       <nav className="py-8">
         <div className="max-w-[1140px] px-[24px] mx-auto flex justify-between items-center">
-          <button className="text-white bg-primaryDark px-6 py-4 text-[20px] cursor-pointer rounded-md">
+          <Link
+            to={"/"}
+            className="text-white bg-primaryDark px-6 py-4 text-[20px] cursor-pointer rounded-md"
+          >
             Eventter
-          </button>
+          </Link>
 
           <div className="flex gap-4 items-center cursor-pointer">
-            <span className="text-[20px] font-sans font-medium text-primaryDark">
-              My Events
-            </span>
+            {isAuthenticated ? (
+              <Link to={"/events"}>
+                <span className="text-[20px] font-sans font-medium text-primaryDark">
+                  My Events
+                </span>
 
-            <UserCircle size={32} weight="fill" />
+                <UserCircle size={32} weight="fill" />
+              </Link>
+            ) : (
+              <Link
+                to="/signin"
+                className="text-[20px] font-sans font-medium text-primaryDark"
+              >
+                SignIn
+              </Link>
+            )}
           </div>
         </div>
       </nav>
